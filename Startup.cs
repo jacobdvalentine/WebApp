@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using vega.Persistence;
+using AutoMapper;
 
 namespace vega
 {
@@ -25,6 +26,8 @@ namespace vega
         // servies - holds all dependencies in application
         public void ConfigureServices(IServiceCollection services)
         {
+            // Automapper extension 
+            services.AddAutoMapper();
             // Register DbContext (Entity) servies, passing the database type with a lambda expressions
             services.AddDbContext<VegaDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:Default"]));
             // Register framework services
