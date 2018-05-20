@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppModuleShared } from './app.shared.module';
+import { AppModuleRoot } from './app.module';
 import { AppComponent } from './components/app/app.component';
 
 @NgModule({
     bootstrap: [ AppComponent ],
     imports: [
         BrowserModule,
-        AppModuleShared
+        AppModuleRoot
     ],
     providers: [
         { provide: 'BASE_URL', useFactory: getBaseUrl }
