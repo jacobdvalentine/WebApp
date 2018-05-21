@@ -15,6 +15,6 @@ export class VehicleService {
 
   // Get function to the features model, mapping a response to json
   getFeatures() {
-    return this.http.get('/api/features').map(response => response.json);
+    return this.http.get('/api/features').map(response => response.json());
   }
 }

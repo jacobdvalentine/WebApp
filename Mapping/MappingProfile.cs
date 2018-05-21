@@ -1,5 +1,6 @@
 using AutoMapper;
 using vega.Controllers.ContollerInterfaces;
+using vega.Models;
 
 namespace vega.Mapping
 {
@@ -9,9 +10,11 @@ namespace vega.Mapping
         public MappingProfile()
         {
             // Map for mapping Make to IMake 
-            CreateMap<Model.Make, IMake>();
+            CreateMap<Make, IMake>();
             // Map for mapping Model to IModel 
-            CreateMap<Model.Model, IModel>();
+            CreateMap<Models.Model, IModel>();
+            // Map for mapping Features to IFeaturs
+            CreateMap<Models.Feature, IFeature>();
         }
     }
 }
