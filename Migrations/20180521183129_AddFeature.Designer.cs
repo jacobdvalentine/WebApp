@@ -11,9 +11,10 @@ using vega.Persistence;
 namespace vega.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
-    partial class VegaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180521183129_AddFeature")]
+    partial class AddFeature
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,48 +67,11 @@ namespace vega.Migrations
                     b.ToTable("Models");
                 });
 
-            modelBuilder.Entity("vega.Models.Vehicle", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ContactEmail")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("ContactName")
-                        .IsRequired()
-                        .HasMaxLength(255);
-
-                    b.Property<string>("ContactPhone")
-                        .IsRequired()
-                        .HasMaxLength(255);
-
-                    b.Property<DateTime>("LastUpdate");
-
-                    b.Property<int>("ModelId");
-
-                    b.Property<bool>("isRegistered");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ModelId");
-
-                    b.ToTable("Vehicles");
-                });
-
             modelBuilder.Entity("vega.Models.Model", b =>
                 {
                     b.HasOne("vega.Models.Make", "Make")
                         .WithMany("Models")
                         .HasForeignKey("MakeId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("vega.Models.Vehicle", b =>
-                {
-                    b.HasOne("vega.Models.Model", "Model")
-                        .WithMany()
-                        .HasForeignKey("ModelId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
